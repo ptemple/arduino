@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arduino activity monitor</title>
+    <style>
+      .data-table {
+	border: 1px solid black;
+	width: 350px;
+      }
+
+      .row-header {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data points</h1>
+    <table class="data-table">
+      <tr class="row-header">
+        <td>Sample time</td>
+        <td>Source</td>
+        <td>Value</td>
+      </tr>
+      {% for sample in data %}
+      <tr>
+        <td>{{ sample.time.ctime() }}</td>
+        <td>{{ sample.source }}</td>
+        <td>{{ sample.value }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
